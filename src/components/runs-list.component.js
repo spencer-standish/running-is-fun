@@ -20,7 +20,7 @@ export default class RunsList extends Component {
   }
 
   deleteRun(id) {
-    axios.delete('http://localhost:8000/runs/delete/' + id)
+    axios.delete(`http://localhost:8000/runs/delete/${id}`)
       .then(res => {
         console.log(res.data);
         // Update the state only after successful deletion
@@ -31,7 +31,7 @@ export default class RunsList extends Component {
       .catch(error => {
         console.error('Error deleting run:', error);
       });
-  }  
+  }
 
   runList() {
     return this.state.runs.map(currentRun => {
@@ -46,8 +46,9 @@ export default class RunsList extends Component {
           <td>{currentRun.weather.temperature}°C, {currentRun.weather.conditions}</td>
           <td>{currentRun.notes}</td>
           <td>
-            <Link to={"/edit/" + currentRun._id}>edit</Link> |{" "}
-            <button onClick={() => this.deleteRun(currentRun._id)}>delete</button>
+            <Link to={`/edit/${currentRun._id}`} className="btn btn-primary btn-sm mr-2">Edit</Link>
+            &nbsp;
+            <button onClick={() => this.deleteRun(currentRun._id)} className="btn btn-danger btn-sm">Delete</button>
           </td>
         </tr>
       );
@@ -56,10 +57,10 @@ export default class RunsList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mx-3"> {/* Added margin to both left and right */}
         <h3>Logged Runs</h3>
-        <table className="table">
-          <thead className="thead-light">
+        <table className="table table-striped table-bordered">
+          <thead className="thead-dark">
             <tr>
               <th>Username</th>
               <th>Distance</th>

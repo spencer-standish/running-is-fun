@@ -35,19 +35,20 @@ export default class CreateUser extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mx-5 mt-4" style={{ backgroundColor: '#f0f0f0', padding: '20px', borderRadius: '10px' }}> {/* Added background color, padding, and border-radius */}
         <h3>Create New User</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group"> 
             <label>Username: </label>
-            <input  type="text"
-                required
-                className="form-control"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-                />
+            <input
+              type="text"
+              required
+              className="form-control"
+              value={this.state.username}
+              onChange={this.onChangeUsername}
+            />
           </div>
-          <div className="form-group">
+          <div className="form-group mt-3"> {/* Increased margin */}
             <input type="submit" value="Create User" className="btn btn-primary" />
           </div>
         </form>

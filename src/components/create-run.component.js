@@ -166,12 +166,13 @@ export default class CreateRun extends Component {
   
   render() {
     return (
-      <div>
-        <h3>Create New Run</h3>
+      <div className="mx-5" style={{ backgroundColor: '#c2edda', padding: '20px', borderRadius: '10px' }}>
+        <h3 className="mb-4">Create New Run</h3>
+
         <form onSubmit={this.onSubmit}>
-          {/* Example: */}
+          {/* Username */}
           <div className="form-group">
-            <label>Username: </label>
+            <label className="mb-2">Username: </label>
             <input
               type="text"
               required
@@ -183,7 +184,7 @@ export default class CreateRun extends Component {
 
           {/* Distance */}
           <div className="form-group">
-            <label>Distance: </label>
+            <label className="mb-2">Distance: </label>
             <input
               type="number"
               required
@@ -194,21 +195,22 @@ export default class CreateRun extends Component {
           </div>
 
           {/* Distance Unit */}
-        <div className="form-group">
-        <label>Distance Unit: </label>
-        <select
-            required
-            className="form-control"
-            value={this.state.distanceUnit}
-            onChange={this.onChangeDistanceUnit}>
-            <option value="KM">Kilometers</option>
-            <option value="MI">Miles</option>
-        </select>
-        </div>
+          <div className="form-group">
+            <label className="mb-2">Distance Unit: </label>
+            <select
+              required
+              className="form-control"
+              value={this.state.distanceUnit}
+              onChange={this.onChangeDistanceUnit}
+            >
+              <option value="KM">Kilometers</option>
+              <option value="MI">Miles</option>
+            </select>
+          </div>
 
           {/* Hours */}
           <div className="form-group">
-            <label>Hours: </label>
+            <label className="mb-2">Hours: </label>
             <input
               type="number"
               className="form-control"
@@ -219,7 +221,7 @@ export default class CreateRun extends Component {
 
           {/* Minutes */}
           <div className="form-group">
-            <label>Minutes: </label>
+            <label className="mb-2">Minutes: </label>
             <input
               type="number"
               required
@@ -231,7 +233,7 @@ export default class CreateRun extends Component {
 
           {/* Seconds */}
           <div className="form-group">
-            <label>Seconds: </label>
+            <label className="mb-2">Seconds: </label>
             <input
               type="number"
               className="form-control"
@@ -239,19 +241,19 @@ export default class CreateRun extends Component {
               onChange={this.onChangeSeconds}
             />
           </div>
-
+          <br></br>
           {/* Date */}
           <div className="form-group">
-            <label>Date: </label>
+            <label className="mb-2">Date: </label>
             <DatePicker
               selected={this.state.date}
               onChange={this.onChangeDate}
             />
           </div>
-
+          <br></br>
           {/* Time */}
           <div className="form-group">
-            <label>Time: </label>
+            <label className="mb-2">Time: </label>
             <input
               type="text"
               className="form-control"
@@ -262,7 +264,7 @@ export default class CreateRun extends Component {
 
           {/* Pace */}
           <div className="form-group">
-            <label>Pace: </label>
+            <label className="mb-2">Pace: </label>
             <input
               type="number"
               className="form-control"
@@ -271,9 +273,9 @@ export default class CreateRun extends Component {
             />
           </div>
 
-          {/* Weather */}
+          {/* Temperature */}
           <div className="form-group">
-            <label>Temperature: </label>
+            <label className="mb-2">Temperature: </label>
             <input
               type="number"
               className="form-control"
@@ -281,8 +283,10 @@ export default class CreateRun extends Component {
               onChange={this.onChangeTemperature}
             />
           </div>
+
+          {/* Conditions */}
           <div className="form-group">
-            <label>Conditions: </label>
+            <label className="mb-2">Conditions: </label>
             <input
               type="text"
               className="form-control"
@@ -293,7 +297,7 @@ export default class CreateRun extends Component {
 
           {/* Notes */}
           <div className="form-group">
-            <label>Notes: </label>
+            <label className="mb-2">Notes: </label>
             <textarea
               type="text"
               className="form-control"
@@ -302,7 +306,8 @@ export default class CreateRun extends Component {
             />
           </div>
 
-          <div className="form-group">
+          {/* Submit Button */}
+          <div className="form-group mt-4">
             <input
               type="submit"
               value="Create Run Log"
