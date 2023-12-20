@@ -39,7 +39,7 @@ router.route('/add').post((req, res) => {
   });
 
   newRun.save()
-    .then(() => res.json('Run added!'))
+    .then(() => res.json({ message: 'Run added successfully!'}))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

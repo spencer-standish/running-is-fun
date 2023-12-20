@@ -24,9 +24,13 @@ export default class CreateUser extends Component {
       username: this.state.username,
     };
     console.log(newUser);
-    
+
     axios.post('http://localhost:8000/users/add', newUser)
-      .then(res => console.log(res.data));
+      .then(res => {
+        console.log(res.data);
+        alert(res.data.message); // Display the confirmation message
+      })
+      .catch(err => console.log('Error: ' + err));
 
     this.setState({
       username: ''
@@ -35,24 +39,30 @@ export default class CreateUser extends Component {
 
   render() {
     return (
-      <div className="mx-5 mt-4" style={{ backgroundColor: '#f0f0f0', padding: '20px', borderRadius: '10px' }}> {/* Added background color, padding, and border-radius */}
-        <h3>Create New User</h3>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
-            <label>Username: </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername}
-            />
+      <div className="container mt-3">
+        <div className="row justify-content-center">
+          <div className="col-md-6"> {/* Moved the closing div tag inside the col-md-6 div */}
+            <div className="mx-5 mt-4" style={{ backgroundColor: '#f0f0f0', padding: '20px', borderRadius: '10px' }}>
+              <h3>Create New User</h3>
+              <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                  <label>Username: </label>
+                  <input
+                    type="text"
+                    required
+                    className="form-control"
+                    value={this.state.username}
+                    onChange={this.onChangeUsername}
+                  />
+                </div>
+                <div className="form-group mt-3">
+                  <input type="submit" value="Create User" className="btn btn-primary" />
+                </div>
+              </form>
+            </div>
           </div>
-          <div className="form-group mt-3"> {/* Increased margin */}
-            <input type="submit" value="Create User" className="btn btn-primary" />
-          </div>
-        </form>
+        </div>
       </div>
-    )
+    );
   }
-}
+}  

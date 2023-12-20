@@ -46,7 +46,7 @@ export default class RunsList extends Component {
           <td>{currentRun.weather.temperature}°C, {currentRun.weather.conditions}</td>
           <td>{currentRun.notes}</td>
           <td>
-            <Link to={`/edit/${currentRun._id}`} className="btn btn-primary btn-sm mr-2">Edit</Link>
+            <Link to={`/edit/${currentRun._id}`} className="btn btn-warning btn-sm mr-2">Edit</Link>
             &nbsp;
             <button onClick={() => this.deleteRun(currentRun._id)} className="btn btn-danger btn-sm">Delete</button>
           </td>
@@ -59,6 +59,11 @@ export default class RunsList extends Component {
     return (
       <div className="mx-3"> {/* Added margin to both left and right */}
         <h3>Logged Runs</h3>
+        <div className='mb-3'>
+            <Link to="/create" className="btn btn-success">Add New Run</Link>
+            &nbsp;
+            <Link to="/user" className="btn btn-primary">Add New User</Link>
+        </div>
         <table className="table table-striped table-bordered">
           <thead className="thead-dark">
             <tr>
