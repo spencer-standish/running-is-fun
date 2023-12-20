@@ -170,7 +170,7 @@ export default class CreateRun extends Component {
   
   render() {
     return (
-      <div className="container mt-3">
+      <div className="container mt-3 mb-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="mx-5" style={{ backgroundColor: '#c2edda', padding: '20px', borderRadius: '10px' }}>
