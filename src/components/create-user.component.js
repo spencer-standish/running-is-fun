@@ -41,7 +41,7 @@ export default class CreateUser extends Component {
     return (
       <div className="container mt-3">
         <div className="row justify-content-center">
-          <div className="col-md-6"> {/* Moved the closing div tag inside the col-md-6 div */}
+          <div className="col-md-6">
             <div className="mx-5 mt-4" style={{ backgroundColor: '#f0f0f0', padding: '20px', borderRadius: '10px' }}>
               <h3>Create New User</h3>
               <form onSubmit={this.onSubmit}>
